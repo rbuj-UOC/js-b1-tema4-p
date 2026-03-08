@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { tests, codeString } from '../U4/U4EJ1.js';
-describe("tests", () => {
+describe('tests', () => {
   const JSData = tests();
   const myCodeString = codeString();
   function getJSData() {
@@ -14,15 +14,17 @@ describe("tests", () => {
   }
   test('checks the function JSData returns JavaScript information from wikipedia', () => {
     let myTest;
-    getJSData().then((data) => {
-      myTest=data;
-      expect(myCodeString.indexOf("await")).toBe(-1);
-      expect(myCodeString.indexOf("json")).toBeGreaterThan(-1);
-      expect(myCodeString.indexOf("then")).toBeGreaterThan(-1);
-      expect(myTest.indexOf('JavaScript')).toBeGreaterThan(-1);
-    }).catch((error) => {
-      myTest="error";
-      expect(myTest=="error").toBe(false);
-    });
+    getJSData()
+      .then((data) => {
+        myTest = data;
+        expect(myCodeString.indexOf('await')).toBe(-1);
+        expect(myCodeString.indexOf('json')).toBeGreaterThan(-1);
+        expect(myCodeString.indexOf('then')).toBeGreaterThan(-1);
+        expect(myTest.indexOf('JavaScript')).toBeGreaterThan(-1);
+      })
+      .catch((error) => {
+        myTest = 'error';
+        expect(myTest === 'error').toBe(false);
+      });
   });
 });
